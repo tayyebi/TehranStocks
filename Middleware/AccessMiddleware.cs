@@ -15,10 +15,5 @@ namespace TehranStocks.Middleware
             else
                 await next(context);
         }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

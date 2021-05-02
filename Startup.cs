@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -63,9 +64,10 @@ namespace TehranStocks
                 });
             });
 
-            services.AddTransient<AccessMiddleware>();
+            // services.AddTransient<AccessMiddleware>();
             services.AddScoped<UnitOfWork>();
             services.AddRepositories(Configuration);
+            services.AddClients(Configuration);
             services.AddServices();
 
             services.AddControllers();
@@ -93,7 +95,7 @@ namespace TehranStocks
                 c.RoutePrefix = string.Empty;
             });
 
-            app.UseMiddleware<AccessMiddleware>();
+            // app.UseMiddleware<AccessMiddleware>();
 
             app.UseRouting();
 
