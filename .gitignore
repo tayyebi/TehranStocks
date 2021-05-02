@@ -1,0 +1,14 @@
+# .NetCore
+bin
+obj
+Properties
+
+# Visual Studio Code
+.vscode/*
+!.vscode/comments.code-snippets
+
+# IntelliJ Rider
+.idea
+
+# Secrets
+secrets.json

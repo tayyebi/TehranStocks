@@ -1,0 +1,98 @@
+{
+	// based on
+	// https://docs.microsoft.com/en-us/dotnet/csharp/codedoc#:~:text=XML%20documentation%20comments%20are%20a,can%20be%20distributed%20alongside%20your%20.
+	// and
+	// https://code.visualstudio.com/docs/editor/userdefinedsnippets
+	// for updates check
+	// https://gist.github.com/tayyebi/229a0361446d85746147f0b78425f9aa
+
+
+	"Region": {
+		"prefix": "#region ${1}",
+		"body": [
+			"/// <summary>"
+			,"/// ${1:Adds two integers and returns the result.}"
+			,"/// </summary>"
+			,"#region"
+			,"$TM_SELECTED_TEXT"
+			,"$0"
+			,"#endregion"
+		],
+	},
+	"Summary": {
+		"prefix": "comment_summary",
+		"body": [
+			"/// <summary>"
+			,"/// <english>${1}</english>"
+			,"/// <persian>${2}</persian>"
+			,"/// </summary>"
+		],
+		"description": "To comment lines of code"
+	},
+	"Class": {
+		"prefix": "comment_class",
+		"body": [
+			"/// <summary>"
+			,"/// The main <c>${TM_FILENAME/(.*)\\..+$/${1:/upcase}/}</c> class."
+			,"/// Contains all methods for performing basic math functions."
+			,"/// <list type=\"bullet\">"
+			,"/// <item>"
+			,"/// <term>${2:Multiply}</term>"
+			,"/// <description>${3:Multiplication Operation}</description>"
+			,"/// </item>"
+			,"/// </list>"
+			,"/// </summary>"
+			,"/// <remarks>"
+			,"/// <para>${3:This class can add, subtract, multiply and divide.}</para>"
+			,"/// </remarks>"
+		],
+	},
+	"Function": {
+		"prefix": "comment_function",
+		"body": [ 
+			"/// <summary>"
+			,"/// <para>${1:Adds two integers and returns the result.}</para>"
+			,"/// <seealso cref=\"${3:AnotherClass.cs}\"/>"
+			,"/// </summary>"
+			,"/// <remarks>"
+			,"/// ${2:<para>See <see cref=\"Math.Min(double, double)\"/>"
+			,"/// to find minimum between <paramref name=\"${7:a}\"/> and <paramref name=\"${9:b}\"/>.</para>}"
+			,"/// </remarks>"
+			,"/// <returns>"
+			,"/// ${4:The sum of two integers.}"
+			,"/// </returns>"
+			,"/// <exception cref=\"${5:System.OverflowException}\">Thrown when ${6:param is nill}</exception>"
+			,"/// <param name=\"${7:a}\">${8:A double precision number.}</param>"
+			,"/// <param name=\"${9:b}\">${10:A double precision number.}</param>"
+			,"/// ${10:<typeparam name=\"T\">A type that inherits from the IComparable interface.</typeparam>}"
+			,"/// <example>"
+			,"/// <code>"
+			,"/// ${3:int c = Math.Add(4, 5);}"
+			,"/// </code>"
+			,"/// </example>"
+		],
+		"description": "The <summary> tag is important, and we recommend that you include it because its content is the primary source of type or member information in IntelliSense or an API reference document."
+	},
+	"Function": {
+		"prefix": "comment_function_simple",
+		"body": [ 
+			"/// <summary>"
+			,"/// <para>${1:Adds two integers and returns the result.}</para>"
+			,"/// </summary>"
+			,"/// <returns>"
+			,"/// ${4:The sum of two integers.}"
+			,"/// </returns>"
+			,"/// <param name=\"${7:a}\">${8:A double precision number.}</param>"
+			,"/// <param name=\"${9:b}\">${10:A double precision number.}</param>"
+		],
+		"description": "The <summary> tag is important, and we recommend that you include it because its content is the primary source of type or member information in IntelliSense or an API reference document."
+	},
+	"Author/Date":{
+		"prefix": "comment_author",
+		"body": [
+			"/// <author>${1:Tayyebi, Mohammad R.}; <${2:smile@tyyi.net}>"
+			,"/// <start_date>${10:$CURRENT_MONTH_NAME_SHORT $CURRENT_DATE $CURRENT_YEAR}</start_date></author>"
+		],
+	}
+
+}
